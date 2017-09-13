@@ -44,6 +44,26 @@
             "name": "web",
             "port": 8080,
             "targetPort": 8080
+          },
+					{
+            "name": "ftp",
+            "port": 21,
+            "targetPort": 21
+          },
+					{
+            "name": "ftp1",
+            "port": 47274,
+            "targetPort": 47274
+          },
+					{
+            "name": "ftp_oassive",
+            "port": 60000,
+            "targetPort": 60000
+          },
+					{
+            "name": "ftp_oassive2",
+            "port": 60001,
+            "targetPort": 60001
           }
         ],
         "selector": {
