@@ -2,11 +2,11 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "django-example",
+    "name": "python-work",
     "annotations": {
       "openshift.io/display-name": "Django",
       "description": "An example Django application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
-      "tags": "quickstart,python,django",
+      "tags": "python,work",
       "iconClass": "icon-python",
       "template.openshift.io/long-description": "This template defines resources needed to develop a Django based application, including a build configuration and application deployment configuration.  It does not include a database.",
       "template.openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -15,7 +15,7 @@
     }
   },
   "labels": {
-    "template": "django-example"
+    "template": "python-work"
   },
   "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
   "objects": [
@@ -158,7 +158,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "django-example"
+                "python-work"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -184,11 +184,33 @@
           "spec": {
             "containers": [
               {
-                "name": "django-example",
+                "name": "python-work",
                 "image": " ",
                 "ports": [
                   {
-                    "containerPort": 8080
+										"name": "http",
+                    "containerPort": 8080,
+										"protocol": "TCP"
+                  },
+									{
+										"name": "ftp_custom",
+                    "containerPort": 47274,
+										"protocol": "TCP"
+                  },
+									{
+										"name": "ftp_org",
+                    "containerPort": 21,
+										"protocol": "TCP"
+                  },
+									{
+										"name": "ftp_oassive1",
+                    "containerPort": 60000,
+										"protocol": "TCP"
+                  },
+									{
+										"name": "ftp_oassive2",
+                    "containerPort": 60001,
+										"protocol": "TCP"
                   }
                 ],
                 "readinessProbe": {
@@ -261,7 +283,7 @@
       "displayName": "Git Repository URL",
       "required": true,
       "description": "The URL of the repository with your application source code.",
-      "value": "https://github.com/openshift/django-ex.git"
+      "value": "https://github.com/rna88/django-ex.git"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
